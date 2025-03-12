@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            font-size: 20px;
+            color: black;
+        }
+        body{
+            background-color: rgba(0, 0, 0, 0.322);
+        }
+    </style>
+</head>
+<body>
+    <label for="phone">Phone:</label>
+    <input id="phone" type="text" value="" onchange="input()" onfocus="focused()" required/> <span>this input deletes extra digits</span>
+    <h1></h1>
+    <label for="phone">Phone</label>
+    <input type="text" value="" oninput="" /> <span>this input only allow valid input and it can't correct the number.</span>
+
+    <script src="script.js"></script>
+</body>
+</html>

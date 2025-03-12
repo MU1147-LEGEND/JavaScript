@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.slider-container{
+  position: relative;
+}
+.slides{
+  display: flex;
+  width: 800px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  background: #000000ad;
+  margin: 20px auto;
+}
+.slide{
+  width: 100%;
+  height: 100%;
+  padding: 20px 50px;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+.slide img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.active{
+  z-index: 100;
+  opacity: 1 !important;
+}
+
+.buttons{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  justify-content: space-around;
+  gap: 600px;
+  width: 100%;
+  z-index: 100;
+  margin: auto;
+  text-align: center;
+}
+.buttons span{
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.person{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.person-info{
+  margin-left: 20px;
+}
+.person-info .name{
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.person-info .title{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  color: #fae100;
+}
+.testimonial-text{  
+  font-size: 16px;
+  margin-top: 15px;
+  color: #fff;
+  line-height: 28px;
+}
