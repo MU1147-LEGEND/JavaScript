@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="csrf-token" content="initial_csrf_token_12345" />
+  <title>Heartbeat Example</title>
+</head>
+<body>
+  <h1>Heartbeat Running...</h1>
+
+  <script>
+    const HEARTBEAT_INTERVAL = 5000; // 10 seconds
+
+    function startHeartbeat() {
+      setInterval(() => {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch('https://bdcourier.com/heartbeat', {
+          method: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': csrfToken,
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => {
+            if (response.status === 401) {
+              window.location.reload();
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => {
+            if (data && data.csrf_token) {
+              document.querySelector('meta[name="csrf-token"]').setAttribute('content', data.csrf_token);
+              console.log('New CSRF token:', data.csrf_token);
+            }
+          })
+          .catch(error => console.error('Error in heartbeat:', error));
+      }, HEARTBEAT_INTERVAL);
+    }
+
+    // Start the heartbeat loop
+    startHeartbeat();
+  </script>
+</body>
+</html>
